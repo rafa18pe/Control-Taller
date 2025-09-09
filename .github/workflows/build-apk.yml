@@ -1,41 +1,9 @@
-name: Build Signed APK
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: 'gradle'
-
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
-      with:
-        gradle-version: 7.6
-    - name: Store keystore
-      run: |
-        mkdir -p app
-        echo "${{ secrets.KEYSTORE }}" | base64 -d > app/joyacontrol.keystore
-
-    - name: Build Release APK
+    - name: Build Release APK with Gradle 8.0
       env:
         KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      run: gradle assembleRelease
-
-    - name: Upload APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-release.apk
-        path: app/build/outputs/apk/release/app-release.apk
-
+      run: |
+        # Forzar el uso de Gradle 8.0
+        ./gradlew --version
+        gradle --version
+        gradle assembleRelease --info
