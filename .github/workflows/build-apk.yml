@@ -20,8 +20,6 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
-      with:
-        gradle-version: 8.0.0
 
     - name: Store keystore
       run: |
