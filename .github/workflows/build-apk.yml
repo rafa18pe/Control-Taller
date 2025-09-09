@@ -1,9 +1,13 @@
-    - name: Build Release APK with Gradle 8.0
+    - name: Build Release APK with Gradle 8.0 (FORCED)
       env:
         KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       run: |
-        # Forzar el uso de Gradle 8.0
-        ./gradlew --version
+        # Verificar que NO existe ./gradlew
+        if [ -f "./gradlew" ]; then
+          echo "ERROR: ./gradlew still exists! Deleting it..."
+          rm ./gradlew
+        fi
+        # Usar solo 'gradle' (instalado por gradle-build-action)
         gradle --version
-        gradle assembleRelease --info
+        gradle assembleRelease --stacktrace
