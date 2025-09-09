@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">JoyaControl</string>
+    <string name="tab_inicio">Inicio</string>
+    <string name="tab_clientes">Clientes</string>
+    <string name="tab_trabajos">Trabajos</string>
+    <string name="btn_nuevo_cliente">+ Nuevo Cliente</string>
+    <string name="btn_nuevo_trabajo">+ Nuevo Trabajo</string>
+    <string name="precio_oro">Precio Oro (24k)</string>
+    <string name="precio_plata">Precio Plata (999)</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="saldo_metal">Saldo de Metal</string>
+    <string name="trabajos_en_curso">Trabajos en curso</string>
+    <string name="total_clientes">Total Clientes</string>
+    <string name="nombre">Nombre</string>
+    <string name="telefono">Teléfono</string>
+    <string name="email">Email</string>
+    <string name="direccion">Dirección</string>
+    <string name="pieza">Nombre de la pieza</string>
+    <string name="tipo_metal">Tipo de Metal</string>
+    <string name="peso_final">Peso final (g)</string>
+    <string name="num_piezas">Número de piezas</string>
+    <string name="precio_por_pieza">Precio por pieza</string>
+    <string name="precio_total">Precio total</string>
+    <string name="metal_entregado">Metal entregado</string>
+    <string name="kilataje">Kilataje / Milesimas</string>
+    <string name="metal_devuelto">Metal devuelto</string>
+    <string name="merma">Merma (%)</string>
+    <string name="calcular">Calcular</string>
+    <string name="guardar">Guardar</string>
+    <string name="fotos">Fotos de piezas</string>
+    <string name="agregar_foto">📷 Agregar Foto</string>
+</resources>

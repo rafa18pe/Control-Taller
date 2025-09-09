@@ -1,0 +1,25 @@
+<resources>
+    <string-array name="tipos_metal">
+        <item>Oro</item>
+        <item>Plata</item>
+        <item>Oro Blanco</item>
+    </string-array>
+    <string-array name="kilataje_oro">
+        <item>24k</item>
+        <item>18k</item>
+        <item>14k</item>
+        <item>10k</item>
+    </string-array>
+    <string-array name="milesimas_plata">
+        <item>999</item>
+        <item>950</item>
+        <item>925</item>
+    </string-array>
+    <string-array name="merma">
+        <item>0%</item>
+        <item>2%</item>
+        <item>5%</item>
+        <item>8%</item>
+        <item>10%</item>
+    </string-array>
+</resources>
