@@ -1,0 +1,13 @@
+# Gradle build files
+gradle/
+gradlew
+gradlew.bat
+.gradle/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+MANIFEST.MF
+META-INF/
