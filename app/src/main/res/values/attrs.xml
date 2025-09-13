@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Atributos personalizados para compatibilidad -->
+    <attr name="textColorPrimary" format="color" />
+    <attr name="textColor" format="color" />
+</resources>
