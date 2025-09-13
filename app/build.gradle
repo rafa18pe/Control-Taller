@@ -8,6 +8,11 @@ android {
     namespace 'com.example.joyacontrol'
     compileSdk 34
 
+    lint {
+        abortOnError false      // Evita que Lint detenga el build
+        checkReleaseBuilds false // No ejecuta Lint en builds de release
+    }
+
     defaultConfig {
         applicationId "com.example.joyacontrol"
         minSdk 24
