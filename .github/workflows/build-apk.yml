@@ -21,18 +21,28 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: Store keystore
+    # ✅ GENERA EL KEYSTORE DIRECTAMENTE EN EL WORKFLOW (SIN SECRETOS)
+    - name: Generate keystore
       run: |
-        mkdir -p app
-        echo "${{ secrets.KEYSTORE }}" | base64 -d > app/joyacontrol.keystore
+        keytool -genkeypair \
+          -alias joyacontrol \
+          -keyalg RSA \
+          -keysize 2048 \
+          -validity 10000 \
+          -keystore app/joyacontrol.keystore \
+          -storepass 123456 \
+          -keypass 123456 \
+          -dname "CN=Rafael Pérez, OU=Taller de Joyería, O=Taller de Joyería, L=Córdoba, ST=Córdoba, C=ES" \
+          -storetype PKCS12
 
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
 
     - name: Build Release APK
       env:
-        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        KEYSTORE_PASSWORD: "123456"
+        KEY_PASSWORD: "123456"
+        KEY_ALIAS: "joyacontrol"
       run: ./gradlew assembleRelease --stacktrace
 
     - name: Upload APK
