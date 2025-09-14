@@ -7,7 +7,14 @@ plugins {
 android {
     namespace 'com.example.joyacontrol'
     compileSdk 34
-
+signingConfigs {
+    release {
+        storeFile file('app/joyacontrol.keystore')
+        storePassword System.getenv("KEYSTORE_PASSWORD")
+        keyAlias System.getenv("KEY_ALIAS") ?: "joyacontrol"
+        keyPassword System.getenv("KEY_PASSWORD")
+    }
+}
     lint {
         abortOnError false      // Evita que Lint detenga el build
         checkReleaseBuilds false // No ejecuta Lint en builds de release
@@ -25,7 +32,8 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+           signingConfig signingConfigs.release   
+           minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
